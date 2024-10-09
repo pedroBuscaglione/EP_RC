@@ -8,7 +8,7 @@ def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        server.bind(('DESKTOP-FL3NE14', 7777)) #colocar localhost
+        server.bind(('DESKTOP-FL3NE14', 7777)) #TROCAR PARA O ENDEREÇO QUE ESTÁ SERVINDO COMO SERVIDOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         server.listen()
 
     except:
