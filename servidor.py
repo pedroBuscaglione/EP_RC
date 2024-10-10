@@ -1,4 +1,4 @@
-import threading 
+import threading
 import socket
 
 clients = []
@@ -8,39 +8,46 @@ def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        server.bind(('DESKTOP-FL3NE14', 7777)) #TROCAR PARA O ENDEREÇO QUE ESTÁ SERVINDO COMO SERVIDOR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        server.bind(('0.0.0.0', 7777))  # Escuta em todas as interfaces de rede
         server.listen()
+        print('Servidor iniciado com sucesso!')
 
     except:
         return print('\nNão foi possível iniciar o servidor!\n')
     
     while True:
         client, addr = server.accept()
+        print(f"Conexão estabelecida com {addr}")
         clients.append(client)
 
-        thread = threading.Thread(target = messagesTreatment, args=[client])
+        thread = threading.Thread(target=messagesTreatment, args=[client])
         thread.start()
 
 def messagesTreatment(client):
     while True:
         try:
             msg = client.recv(2048)
+            if not msg:
+                break
             broadcast(msg, client)
-        except:
-               deleteClient(client)
-               break
+        except Exception as e:
+            print(f"Erro: {e}")
+            break
+    deleteClient(client)
 
-def broadcast(msg, client):
-    for clientItem in clients:
-        if  clientItem != client:
+def broadcast(msg, sender_client):
+    for client in clients:
+        if client != sender_client:
             try:
-                clientItem.send(msg)
+                client.send(msg)
             except:
-                deleteClient(clientItem)
-
+                deleteClient(client)
 
 def deleteClient(client):
-    clients.remove(client)
+    if client in clients:
+        clients.remove(client)
+        client.close()
+        print(f"Cliente desconectado e removido: {client}")
 
-
-main()
+if __name__ == "__main__":
+    main()
