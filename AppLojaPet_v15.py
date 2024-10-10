@@ -187,30 +187,30 @@ class App:
         store_label.pack(pady=20)
 
         # Exibir imagem da Cama para Gato
-        #img1_path = "/IMAGENS/CAMADEGATO.jpeg"  # Caminho da imagem da cama para gato #ALTERANDO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!
-        #img1 = Image.open(img1_path)
-        #img1 = img1.resize((100, 100), Image.ANTIALIAS)  # Redimensiona a imagem
-        #img1_tk = ImageTk.PhotoImage(img1)
+        img1_path = "imagens\CAMADEGATO.jpeg"  # Caminho da imagem da cama para gato #ALTERANDO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!
+        img1 = Image.open(img1_path)
+        img1 = img1.resize((100, 100), Image.LANCZOS)  # Redimensiona a imagem
+        img1_tk = ImageTk.PhotoImage(img1)
 
-        #img1_label = tk.Label(self.store_frame, image=img1_tk)
-        #img1_label.image = img1_tk  # Mantém uma referência à imagem
-        #img1_label.pack(pady=10)
+        img1_label = tk.Label(self.store_frame, image=img1_tk)
+        img1_label.image = img1_tk  # Mantém uma referência à imagem
+        img1_label.pack(pady=10)
 
-        #desc1 = tk.Label(self.store_frame, text="Cama para Gato")
-        #desc1.pack(pady=5)
+        desc1 = tk.Label(self.store_frame, text="Cama para Gato")
+        desc1.pack(pady=5)
 
         add_to_cart_button1 = tk.Button(self.store_frame, text="Adicionar ao Carrinho", command=lambda: self.add_to_cart("Cama para Gato"))
         add_to_cart_button1.pack(pady=5)
 
         # Exibir imagem do Mordedor para Cachorro
-        #img2_path = "/IMAGENS/mordedor.jpg"  # Caminho da imagem do mordedor para cachorro ALTERANDO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!
-        #img2 = Image.open(img2_path)
-        #img2 = img2.resize((100, 100), Image.ANTIALIAS)  # Redimensiona a imagem
-        #img2_tk = ImageTk.PhotoImage(img2)
+        img2_path = "imagens\mordedor.jpg"  # Caminho da imagem do mordedor para cachorro ALTERANDO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!
+        img2 = Image.open(img2_path)
+        img2 = img2.resize((100, 100), Image.LANCZOS)  # Redimensiona a imagem
+        img2_tk = ImageTk.PhotoImage(img2)
 
-       # img2_label = tk.Label(self.store_frame, image=img2_tk)
-        #img2_label.image = img2_tk  # Mantém uma referência à imagem
-       # img2_label.pack(pady=10)
+        img2_label = tk.Label(self.store_frame, image=img2_tk)
+        img2_label.image = img2_tk  # Mantém uma referência à imagem
+        img2_label.pack(pady=10)
 
         desc2 = tk.Label(self.store_frame, text="Mordedor para Cachorro")
         desc2.pack(pady=5)
